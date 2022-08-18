@@ -6,6 +6,10 @@ abstract class Person {
     private int alter;
 
     //__Methods__
+    public Person(int pAlter, String pName){
+        alter = pAlter;
+        name = pAlter;
+    }
     //Getter
     String getName(){ return name;}
     int getAlter(){ return alter;}
