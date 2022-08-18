@@ -3,15 +3,12 @@ package Person;
 public class Lehrer extends Person{
 
     //atribs
-    private int alter;
-    private String name;
     private String kürzel;
 
     //__Methods__
     public Lehrer(){
         kürzel = "none";
-        alter = 0;
-        name = "none";
+        super();
     }
 
     /**
