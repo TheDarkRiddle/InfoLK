@@ -3,15 +3,12 @@ package Person;
 public class Seki extends Person{
 
     //atribs
-    private int alter;
-    private String name;
     private int teleNR;
 
     //__Methods__
     public Seki(){
         teleNR = 0;
-        alter = 0;
-        name = "none";
+        super();
     }
 
     /**
@@ -21,8 +18,7 @@ public class Seki extends Person{
      */
     public Seki(int pTeleNR, int pAlter,String pName){
         teleNR = pTeleNR;
-        alter = pAlter;
-        name = pName;
+        super(pAlter, pName);
 
     }
     //Getter
@@ -47,6 +43,6 @@ public class Seki extends Person{
     //Other
     @Override
     public String toString() {
-        return "Name:" + this.name + " Alter:" + this.alter + " Telefon Nummer:" + this.teleNR;
+        return super.toString()+ " Telefon Nummer:" + this.teleNR;
     }
 }
