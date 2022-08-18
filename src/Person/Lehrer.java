@@ -17,7 +17,7 @@ public class Lehrer extends Person{
      * @param pName  Name des Lehrer
      */
     public Lehrer(String pKürzel, int pAlter,String pName){
-        super(pName, pAlter);
+        super(pAlter, pName);
         kürzel = pKürzel;
 
     }
