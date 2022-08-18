@@ -3,15 +3,12 @@ package Person;
 public class Schüler extends Person{
     
     //atribs
-    private int alter;
-    private String name;
     private int klassenStufe;
 
     //__Methods__
     public Schüler(){
         klassenStufe = 0;
-        alter = 0;
-        name = "none";
+        super();
     }
 
     /**
@@ -21,26 +18,25 @@ public class Schüler extends Person{
      */
     public Schüler(int pKS, int pAlter, String pName){
         klassenStufe = pKS;
-        alter = pAlter;
-        name = pName;
+        super(pAlter, pName);
 
     }
     //Getter
     @Override
     public int getAlter() {
-        return alter;
+        return super.getAlter();
     }
 
     @Override
     public String getName() {
-        return name;
+        return super.getName();
     }
     public int getKlassenStufe(){return klassenStufe;}
 
     //Setter
     @Override
     public void setName(String pName) {
-        name = pName;
+        name = super.setName(pName);
     }
     public void setKlassenStufe(int pKS){klassenStufe = pKS;}
 
