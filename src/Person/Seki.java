@@ -6,20 +6,14 @@ public class Seki extends Person{
     private int teleNR;
 
     //__Methods__
-    public Seki(){
-        teleNR = 0;
-        super();
-    }
-
     /**
      * @param pTeleNR Telefon NR des Seketeriates
      * @param pAlter Das Alter des Seketeriates
      * @param pName  Name des Seketeriates
      */
     public Seki(int pTeleNR, int pAlter,String pName){
-        teleNR = pTeleNR;
         super(pAlter, pName);
-
+        teleNR = pTeleNR;
     }
     //Getter
     @Override

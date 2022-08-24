@@ -6,20 +6,14 @@ public class Schüler extends Person{
     private int klassenStufe;
 
     //__Methods__
-    public Schüler(){
-        klassenStufe = 0;
-        super();
-    }
-
     /**
      * @param pKS Klassenstufe des Schühlers
      * @param pAlter Das Alter des Schühlers
      * @param pName  Name des Schühlers
      */
     public Schüler(int pKS, int pAlter, String pName){
-        klassenStufe = pKS;
         super(pAlter, pName);
-
+        klassenStufe = pKS;
     }
     //Getter
     @Override
@@ -36,13 +30,13 @@ public class Schüler extends Person{
     //Setter
     @Override
     public void setName(String pName) {
-        name = super.setName(pName);
+       super.setName(pName);
     }
     public void setKlassenStufe(int pKS){klassenStufe = pKS;}
 
     //Other
     @Override
     public String toString() {
-        return "Name:" + this.name + " Alter:" + this.alter + " Klassenstufe:" + this.klassenStufe;
+        return "Name:" + this.getName() + " Alter:" + this.getAlter() + " Klassenstufe:" + this.klassenStufe;
     }
 }

@@ -6,11 +6,6 @@ public class Lehrer extends Person{
     private String kürzel;
 
     //__Methods__
-    public Lehrer(){
-        kürzel = "none";
-        super();
-    }
-
     /**
      * @param pKürzel Names Kürzel des Lehrer
      * @param pAlter Das Alter des Lehrer
@@ -43,6 +38,6 @@ public class Lehrer extends Person{
     //Other
     @Override
     public String toString() {
-        return "Name:" + this.name + " Alter:" + this.alter + " Kürzel:" + this.kürzel;
+        return "Name:" + this.getName() + " Alter:" + this.getAlter() + " Kürzel:" + this.kürzel;
     }
 }
