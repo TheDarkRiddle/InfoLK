@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2da708d-c3d4-415d-a20d-8e1ee644636b" name="Changes" comment="HA vom 15.8.2022 auf den 16.8.2022. UML Diagramme umsetzen.">
-      <change afterPath="$PROJECT_DIR$/src/Metavers/Acount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Metavers/Avatar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Metavers/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Metavers/MetaversMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Metavers/Programm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FakeBlockChain/Block.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Person/Lehrer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Person/Lehrer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Person/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Person/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Person/Schüler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Person/Schüler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Person/Seki.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Person/Seki.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +44,28 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.FakeBlockChain">
+    <configuration name="Block" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FakeBlockChain.Block" />
+      <module name="InfoLK" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="FakeBlockChain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FakeBlockChain" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="FakeBlockChain.Block" />
+      <module name="InfoLK" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/FakeBlockChain" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Person.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Person.Main" />
       <module name="InfoLK" />
@@ -58,8 +79,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.FakeBlockChain" />
+      <item itemvalue="Application.Block" />
+      <item itemvalue="Application.Person.Main" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Block" />
         <item itemvalue="Application.Person.Main" />
       </list>
     </recent_temporary>
