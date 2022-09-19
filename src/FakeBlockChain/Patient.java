@@ -8,4 +8,11 @@ public class Patient {
         alter = pAlter;
         name = pName;
     }
+
+    public int getAlter() {
+        return alter;
+    }
+    public String getName() {
+        return name;
+    }
 }

@@ -85,8 +85,26 @@ public class KrankenHaus {
             }
             QKranken = tempQ;
         }
-
         return searchedFor;
+    }
+
+    public void printBlocks(Queue<Block> eingabe){
+        if(eingabe.isEmpty()){
+            System.out.println("Empty");
+        }
+        Queue<Block> tempQ = new Queue<Block>();
+        while(!eingabe.isEmpty()){
+            tempQ.enqueue(eingabe.front());
+                Block tempBlock = eingabe.front();
+                System.out.println("Queue beinhaltet:");
+                System.out.println("ID: " + tempBlock.getId() +
+                        "\nEmpfänger " + tempBlock.getEmpfänger() +
+                        "\nSender: " + tempBlock.getSender() +
+                        "\nBetrag: " + tempBlock.getBetrag());
+                System.out.println("--------------------------------");
+            eingabe.dequeue();
+        }
+        eingabe = tempQ;
     }
     public static void main(String[] args) {
         KrankenHaus meinHaus = new KrankenHaus();
@@ -95,7 +113,7 @@ public class KrankenHaus {
         Block three = new Block(9,50, 87,78);
         Block four = new Block(1,6000, 98,89);
         Block five = new Block(44,400, 21,12);
-        Block six = new Block(50,321, 52,52);
+        Block six = new Block(50,321, 52,23);
 
         meinHaus.addBlock(one);
         meinHaus.addBlock(two);
@@ -103,6 +121,7 @@ public class KrankenHaus {
         meinHaus.addBlock(four);
         meinHaus.addBlock(five);
         meinHaus.addBlock(six);
+        /*
         //Count a
         System.out.println(meinHaus.countQ());
 
@@ -113,6 +132,8 @@ public class KrankenHaus {
         System.out.println(meinHaus.getDataFromX(1));
 
         //get Block Emp = ID && Send == ID
-        System.out.println(meinHaus.getBlocks(5));
+        Queue eineNeueQ = meinHaus.getBlocks(23);
+        meinHaus.printBlocks(eineNeueQ);
+        */
     }
 }
