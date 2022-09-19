@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2da708d-c3d4-415d-a20d-8e1ee644636b" name="Changes" comment="HA vom 15.8.2022 auf den 16.8.2022. UML Diagramme umsetzen.">
-      <change afterPath="$PROJECT_DIR$/src/FakeBlockChain/Names" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FakeBlockChain/Schule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FakeBlockChain/Stack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FakeBlockChain/KrankenHaus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FakeBlockChain/KrankenHaus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FakeBlockChain/Names" beforeDir="false" afterPath="$PROJECT_DIR$/src/FakeBlockChain/Names" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FakeBlockChain/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FakeBlockChain/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FakeBlockChain/Schule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FakeBlockChain/Schule.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,17 +154,12 @@
     <option name="LAST_COMMIT_MESSAGE" value="HA vom 15.8.2022 auf den 16.8.2022. UML Diagramme umsetzen." />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
-          <option name="timeStamp" value="2" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
+        <watch expression="manyPeopel" />
         <watch expression="namenArray" />
+        <watch expression="namenBuschteben" />
+        <watch expression="namen" />
       </configuration>
     </watches-manager>
   </component>

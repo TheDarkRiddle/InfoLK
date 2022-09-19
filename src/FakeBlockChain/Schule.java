@@ -6,6 +6,7 @@ import java.nio.file.Path;
 
 public class Schule {
     Stack<Patient> sMenschen;
+    String pPatientNames = "src/FakeBlockChain/Names";
 
     Schule (){
         sMenschen = new Stack<Patient>();
@@ -21,24 +22,24 @@ public class Schule {
     }
 
     public Stack<Patient> makePeopel(int count){
+        //Ausgabe Stack
         Stack<Patient> manyPeopel= new Stack<Patient>();
+        //String in den die Namen geladen werden
         String namen = null;
+        //Versuch die Namen zu laden
         try {
-            namen = Files.readString(Path.of("src/FakeBlockChain/Names"));
+            namen = Files.readString(Path.of(pPatientNames));
         } catch (IOException e) {
+            //Namen File nicht lesbar
             throw new RuntimeException(e);
         }
-        String[] namenArray = namen.split(" ");
-            for (int i = 0; i < count; i++){
-                if (namenArray[i] == null){
-                    i = count;
-                }
-                else{
-                    manyPeopel.push(new Patient((int)(Math.random()*120)+1, namenArray[i]));
-                }
-            }
-
-
+        //Aufteilung der Namen in ein Array
+        String[] namenArray = namen.split("\\t|\\r+\\n",count);
+        namenArray[count-1] = namenArray[count-1].replaceAll("\\b\\W+\\w*","");
+        //Erschaffung von "Patienten"
+        for (int i = 0; i < count; i++){
+            manyPeopel.push(new Patient((int)(Math.random()*120)+1, namenArray[i]));
+        }
         return manyPeopel;
     }
 
@@ -51,7 +52,7 @@ public class Schule {
             count++;
             sMenschen.pop();
         }
-        sMenschen = turnOver(sMenschen);
+        sMenschen = turnOver(sTemp);
         return count;
     }
 
@@ -67,7 +68,7 @@ public class Schule {
                 }
                 sMenschen.pop();
             }
-            sMenschen = turnOver(sMenschen);
+            sMenschen = turnOver(sTemp);
         }
         return count;
     }
@@ -84,7 +85,7 @@ public class Schule {
                 }
                 sMenschen.pop();
             }
-            sMenschen = turnOver(sMenschen);
+            sMenschen = turnOver(sTemp);
         }
         return tempP;
     }
@@ -101,9 +102,22 @@ public class Schule {
                 }
                 sMenschen.pop();
             }
-            sMenschen = turnOver(sMenschen);
+            sMenschen = turnOver(sTemp);
         }
         return sResult;
+    }
+
+    public void showPatients(int count){
+        Stack<Patient> sTemp = new Stack<Patient>();
+        if (count == 0){
+            count = this.count();
+        }
+        for (int i = 0; i < count; i++){
+            sTemp.push(sMenschen.top());
+            System.out.println("____Patient"+(i+1)+"____\n"+sMenschen.top().toString());
+            sMenschen.pop();
+        }
+        sMenschen = turnOver(sTemp);
     }
 
     public static void main(String[] args) {
@@ -125,6 +139,7 @@ public class Schule {
 
 
         zweiSchule.sMenschen = zweiSchule.makePeopel(10);
+        zweiSchule.showPatients(10);
         System.out.println("Zwei Schule:" + zweiSchule.count());
         System.out.println("\n Patient Namesns Heidi: " + eineSchule.searchForPatient("Heidi").getName());
     }
