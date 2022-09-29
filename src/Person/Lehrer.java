@@ -7,7 +7,7 @@ public class Lehrer extends Person{
 
     //__Methods__
     /**
-     * @param pKürzel Names Kürzel des Lehrer
+     * @param pKürzel FingerNames Kürzel des Lehrer
      * @param pAlter Das Alter des Lehrer
      * @param pName  Name des Lehrer
      */
