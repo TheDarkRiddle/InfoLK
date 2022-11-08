@@ -34,6 +34,7 @@ public class Schule {
             throw new RuntimeException(e);
         }
         //Aufteilung der Namen in ein Array
+        //regex magie
         String[] namenArray = namen.split("\\t|\\r+\\n",count);
         namenArray[count-1] = namenArray[count-1].replaceAll("\\b\\W+\\w*","");
         //Erschaffung von "Patienten"
