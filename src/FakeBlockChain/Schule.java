@@ -20,7 +20,11 @@ public class Schule {
         }
         return sTemp;
     }
-
+    /**
+     * Erstellt einen Stack an produkten, welcher die Namen aus einer Liste enthält, einen zufälligen Preis zu weist,
+     * und eine ID vergibt
+     * @param count Die Menge an Artikeln die Generiert werden soll
+     */
     public Stack<Patient> makePeopel(int count){
         //Ausgabe Stack
         Stack<Patient> manyPeopel= new Stack<Patient>();

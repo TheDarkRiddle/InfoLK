@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2da708d-c3d4-415d-a20d-8e1ee644636b" name="Changes" comment="HA vom 15.8.2022 auf den 16.8.2022. UML Diagramme umsetzen.">
-      <change afterPath="$PROJECT_DIR$/src/LagerHaus/Artikel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LagerHaus/Bestellung.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LagerHaus/Lagerhausi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LagerHaus/List.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LagerHaus/Aritekels" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FakeBlockChain/Schule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FakeBlockChain/Schule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InterfacesUndVererbung/Finger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InterfacesUndVererbung/Finger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LagerHaus/Lagerhausi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LagerHaus/Lagerhausi.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
