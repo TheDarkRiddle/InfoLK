@@ -120,6 +120,7 @@ public class Lagerhausi {
           if (bestellung.getContent().getPreis() < expensiv.getPreis()){
               expensiv = bestellung.getContent();
           }
+         toCount.next();
       }
     return expensiv;
   }
@@ -128,6 +129,7 @@ public class Lagerhausi {
         int count = 0;
         while ( toCount.hasAccess()){
            count++;
+           toCount.next();
         }
         return count;
     }
@@ -137,6 +139,7 @@ public class Lagerhausi {
         while ( toCount.hasAccess()){
             if (toCount.getContent().getPreis() > 50){
                 count++;
+               toCount.next();
             }
         }
         return count;
@@ -155,6 +158,7 @@ public class Lagerhausi {
                 KEKSE.append(toCount.getContent());
                 toCount.remove();
             }
+           toCount.next();
         }
         return KEKSE;
     }
