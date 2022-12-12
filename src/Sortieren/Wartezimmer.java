@@ -42,14 +42,14 @@ public class Wartezimmer{
         }
     }
 
-    public void gibArrayAus(){
+    public void gibArrayAus( Patient[] array){
         System.out.println("++++++++++++++++++++++++++++++");
         System.out.println("Im Wartezimmer(Array) sitzen derzeit:");
-        for(int i = 0; i< meineBubbleP.length; i++) {
-            if(meineBubbleP[i] != null) {
-                System.out.println("PID: " + meineBubbleP[i].getID()+
-                        " PKrankheit: " + meineBubbleP[i].getKrankheit()+
-                        " pGrad: " + meineBubbleP[i].getGrad());
+        for(int i = 0; i< array.length; i++) {
+            if(array[i] != null) {
+                System.out.println("PID: " + array[i].getID()+
+                        " PKrankheit: " + array[i].getKrankheit()+
+                        " pGrad: " + array[i].getGrad());
             }
         }
         System.out.println("++++++++++++++++++++++++++++++"+"\n");
@@ -69,11 +69,11 @@ public class Wartezimmer{
         System.out.println("++++++++++++++++++++++++++++++"+"\n");
     }
 
-    private void swap (int i, int j){
-        if (i>=0&&j>=0&&i< meineBubbleP.length&&j< meineBubbleP.length){
-            Patient temp = meineBubbleP[i];
-            meineBubbleP[i] = meineBubbleP[j];
-            meineBubbleP[j] = temp;
+    private void swap (int i, int j, Patient[] array){
+        if (i>=0&&j>=0&&i< array.length&&j< array.length){
+            Patient temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
         }
     }
 
@@ -95,7 +95,7 @@ public class Wartezimmer{
         StringBuilder temp = krankheiten;
         while (namenArray.length < count){
             //regex magie
-            namenArray = krankheiten.append(temp).toString().split("\\t|\\r+\\n", 0);
+            namenArray = krankheiten.append(temp).toString().split("\t|\r+\n", 0);
         }
         //----------------------------Erschaffung von "Patienten"----------------------------
         for (int i = 0; i < count; i++){
@@ -119,7 +119,7 @@ public class Wartezimmer{
             boolean swapped = false;
             for (int j = 0; j < n-i-1; j++){
                 if (toSort[j].isGreater(toSort[j+1])){
-                    swap(j, j+1);
+                    swap(j, j+1, toSort);
                     swapped = true;
                     metaData.swaps++;
                 }
@@ -143,7 +143,7 @@ public class Wartezimmer{
             //----Hinweg----
             for (int j = start; j < end-1; j++){
                 if (toSort[j].isGreater(toSort[j+1])){
-                    swap(j, j+1);
+                    swap(j, j+1, toSort);
                     swapped = true;
                     metaData.swaps++;
                 }
@@ -159,7 +159,7 @@ public class Wartezimmer{
             //----Rückweg----
             for (int j = end - 1; j >= start; j--){
                 if (toSort[j].isGreater(toSort[j+1])){
-                    swap(j, j+1);
+                    swap(j, j+1, toSort);
                     swapped = true;
                     metaData.swaps++;
                 }
@@ -172,18 +172,19 @@ public class Wartezimmer{
 
     public static void main(String[] args) {
         double l = System.currentTimeMillis();
-        int gewuenschte = 300;
+        int gewuenschte = 50000;
         Wartezimmer einZimmer = new Wartezimmer(gewuenschte);
 
         double round1 = System.currentTimeMillis()- l;
         //Bubble
         TempMetaData bubbleData = new TempMetaData();
         einZimmer.BubbleSort(bubbleData, einZimmer.meineBubbleP);
-        einZimmer.gibArrayAus();
+        einZimmer.gibArrayAus(einZimmer.meineBubbleP);
 
         //Shaker
         TempMetaData shakerData = new TempMetaData();
         einZimmer.ShakerSort(shakerData, einZimmer.meineShakerP);
+        einZimmer.gibArrayAus(einZimmer.meineShakerP);
 
         System.out.println("--------------------------------------------------------");
         System.out.println("Gesamte Prozess Dauer ≈ " + (System.currentTimeMillis()- l)/1000 + " (Sek)" );
