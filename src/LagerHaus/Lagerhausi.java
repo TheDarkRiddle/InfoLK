@@ -79,6 +79,7 @@ public class Lagerhausi {
     }
     else{
         Rest.concat(neueBestellung.getBestellung());
+        System.out.println("Wurde in die Warte Liste aufgenommen");
     }
   }
     /**
@@ -120,26 +121,30 @@ public class Lagerhausi {
           if (bestellung.getContent().getPreis() < expensiv.getPreis()){
               expensiv = bestellung.getContent();
           }
-         toCount.next();
+          bestellung.next();
       }
     return expensiv;
   }
     private int countList(List<Artikel> toCount){
         toCount.toFirst();
         int count = 0;
-        while ( toCount.hasAccess()){
-           count++;
-           toCount.next();
+        if(toCount != null) {
+            while (toCount.hasAccess()) {
+                count++;
+                toCount.next();
+            }
         }
         return count;
     }
     private int countOver50(List<Artikel> toCount){
         toCount.toFirst();
         int count = 0;
-        while ( toCount.hasAccess()){
-            if (toCount.getContent().getPreis() > 50){
-                count++;
-               toCount.next();
+        if(toCount != null) {
+            while (toCount.hasAccess()) {
+                if (toCount.getContent().getPreis() > 50) {
+                    count++;
+                    toCount.next();
+                }
             }
         }
         return count;
@@ -152,13 +157,15 @@ public class Lagerhausi {
     private List<Artikel> getAllKEKSE(List<Artikel> toCount){
         toCount.toFirst();
         List<Artikel> KEKSE = new List<Artikel>();
-        while ( toCount.hasAccess()){
-            if (toCount.getContent().getName().equalsIgnoreCase("Kekse")||
-                    toCount.getContent().getName().equalsIgnoreCase("Keks")){
-                KEKSE.append(toCount.getContent());
-                toCount.remove();
+        if (toCount != null) {
+            while (toCount.hasAccess()) {
+                if (toCount.getContent().getName().equalsIgnoreCase("Kekse") ||
+                        toCount.getContent().getName().equalsIgnoreCase("Keks")) {
+                    KEKSE.append(toCount.getContent());
+                    toCount.remove();
+                }
+                toCount.next();
             }
-           toCount.next();
         }
         return KEKSE;
     }
@@ -170,5 +177,10 @@ public class Lagerhausi {
 
         Bestellung ersteBestellung;
         List<Artikel> wuensche = makeArticlesAsList(3, LagerListe);
+        ersteBestellung = new Bestellung(wuensche);
+
+        AmazoneLager.neueBestellung(ersteBestellung);
+
+        Frame einBild = new Frame("test");
     }
 }
