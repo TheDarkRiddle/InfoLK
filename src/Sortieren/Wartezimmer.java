@@ -22,13 +22,14 @@ public class Wartezimmer{
             System.out.println("Sortierung des Zimmers und seinen Patienten ≈ " + time/1000 + " (Sek)");
         }
     }
-    private static String KrankheitenListe = "src/Sortieren/Krankheiten";
+
     public Wartezimmer(int pI)    {
         meineBubbleP = new Patient[pI];
-        meinePListI = new List <Patient>();
+        meinePListI = new List<>();
         //public Patient(int pID, String pKrankheit, double pGrad)
-        meineBubbleP = makeKranke( pI,KrankheitenListe);
-        meineShakerP = makeKranke(pI, KrankheitenListe);
+        String krankheitenListe = "src/Sortieren/Krankheiten";
+        meineBubbleP = makeKranke( pI, krankheitenListe);
+        meineShakerP = makeKranke(pI, krankheitenListe);
         meinePListI = ArrayToList(meineBubbleP);
         meinePListS = ArrayToList(meineShakerP);
     }
@@ -48,11 +49,11 @@ public class Wartezimmer{
     public void gibArrayAus( Patient[] array){
         System.out.println("++++++++++++++++++++++++++++++");
         System.out.println("Im Wartezimmer(Array) sitzen derzeit:");
-        for(int i = 0; i< array.length; i++) {
-            if(array[i] != null) {
-                System.out.println("PID: " + array[i].getID()+
-                        " PKrankheit: " + array[i].getKrankheit()+
-                        " pGrad: " + array[i].getGrad());
+        for (Patient patient : array) {
+            if (patient != null) {
+                System.out.println("PID: " + patient.getID() +
+                        " PKrankheit: " + patient.getKrankheit() +
+                        " pGrad: " + patient.getGrad());
             }
         }
         System.out.println("++++++++++++++++++++++++++++++"+"\n");
@@ -81,9 +82,9 @@ public class Wartezimmer{
     }
 
     private List<Patient>ArrayToList(Patient[] array){
-        List<Patient> eineListe = new List<Patient>();
-        for (int i = 0; i< array.length; i++){
-            eineListe.append(array[i]);
+        List<Patient> eineListe = new List<>();
+        for (Patient patient : array) {
+            eineListe.append(patient);
         }
         return eineListe;
     }
@@ -91,7 +92,7 @@ public class Wartezimmer{
         //Ausgabe DS
         Patient[] patienten = new Patient[count];
         //String in den die Namen geladen werden
-        StringBuilder krankheiten = null;
+        StringBuilder krankheiten;
         //----------------------------Versuch die Namen zu laden----------------------------
         try {
             krankheiten = new StringBuilder(Files.readString(Path.of(adress)));
@@ -182,8 +183,8 @@ public class Wartezimmer{
 
     public List<Patient> insertionSort(List<Patient> pListe, TempMetaData metaData){
         double tempT= System.currentTimeMillis();
-        boolean sorted = false;
-        List<Patient> sortiert = new List<Patient>();
+        boolean sorted;
+        List<Patient> sortiert = new List<>();
 
         pListe.toFirst();
         while (pListe.hasAccess()) {
@@ -225,7 +226,7 @@ public class Wartezimmer{
     }
     public List<Patient> selectionSort(List<Patient> pListe, TempMetaData metaData){
         double tempT= System.currentTimeMillis();
-        List<Patient> sortiert = new List<Patient>();
+        List<Patient> sortiert = new List<>();
 
         pListe.toFirst();
         while (pListe.hasAccess()) {
