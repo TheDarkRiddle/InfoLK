@@ -8,7 +8,9 @@ public class Wartezimmer{
 
     Patient[] meineBubbleP;
     Patient[] meineShakerP;
-    List<Patient> meinePList;
+    List<Patient> meinePListI;
+
+    List<Patient> meinePListS;
 
     static class TempMetaData {
         int swaps = 0;
@@ -23,16 +25,17 @@ public class Wartezimmer{
     private static String KrankheitenListe = "src/Sortieren/Krankheiten";
     public Wartezimmer(int pI)    {
         meineBubbleP = new Patient[pI];
-        meinePList = new List <Patient>();
+        meinePListI = new List <Patient>();
         //public Patient(int pID, String pKrankheit, double pGrad)
         meineBubbleP = makeKranke( pI,KrankheitenListe);
         meineShakerP = makeKranke(pI, KrankheitenListe);
-        meinePList = ArrayToList(meineBubbleP);
+        meinePListI = ArrayToList(meineBubbleP);
+        meinePListS = ArrayToList(meineShakerP);
     }
 
     public void newPatient(Patient pPatient) {
         if(pPatient !=null) {
-            meinePList.append(pPatient);
+            meinePListI.append(pPatient);
             for(int i = 0; i< meineBubbleP.length; i++) {
                 if(meineBubbleP[i] == null) {
                     meineBubbleP[i] = pPatient;
@@ -177,51 +180,105 @@ public class Wartezimmer{
         metaData.time = System.currentTimeMillis() - tempT;
     }
 
-    public List<Patient> selectionSort(List<Patient> pListe, TempMetaData metaData){
-        double timeStemp = System.currentTimeMillis();
-        List<Patient> result = new List<Patient>();
+    public List<Patient> insertionSort(List<Patient> pListe, TempMetaData metaData){
+        double tempT= System.currentTimeMillis();
+        boolean sorted = false;
+        List<Patient> sortiert = new List<Patient>();
+
         pListe.toFirst();
-        do {
+        while (pListe.hasAccess()) {
             metaData.zyklen++;
-            Patient smalest = pListe.getContent();
-            pListe.next();
-            while (pListe.hasAccess()){
-                if (pListe.getContent().isLess(smalest)){
-                    smalest = pListe.getContent();
-                    pListe.remove();
+            Patient temp = pListe.getContent();
+            pListe.remove();
+            //pListe.toFirst();
+            //Sortierte Liste leer
+            if (sortiert.isEmpty()) {
+                sortiert.append(temp);
+                metaData.swaps++;
+            } else {
+                //passende stelle finden
+                sortiert.toFirst();
+                sorted = false; // auf standart wert
+
+                while (sortiert.hasAccess()) {
+                    if ((temp.isGreater(sortiert.getContent()) || (temp.isEqual(sortiert.getContent())))) { //passend
+                        sortiert.insert(temp);
+                        sortiert.toLast(); // current auf last
+                        sortiert.next(); // current auf null = schleife false
+                        sorted = true;
+                    }else { //nicht passend
+                        sortiert.next();
+                    }
                 }
-                else{
-                    pListe.next();
+
+                if (!sorted){ // nichts passendes gefunden
+                    sortiert.append(temp);
+                    metaData.swaps++;
                 }
             }
-            result.append(smalest);
+            //pListe.next();
+            pListe.toFirst(); // für neuen durchlauf auf current auf first
+        }
+
+        metaData.time = System.currentTimeMillis() - tempT;
+        return sortiert;
+    }
+    public List<Patient> selectionSort(List<Patient> pListe, TempMetaData metaData){
+        double tempT= System.currentTimeMillis();
+        List<Patient> sortiert = new List<Patient>();
+
+        pListe.toFirst();
+        while (pListe.hasAccess()) {
+            metaData.zyklen++;
+            Patient temp = pListe.getContent();
+            // kleinstes finden
+            while (pListe.hasAccess()) {
+                if (temp.isLess(pListe.getContent())){
+                    temp = pListe.getContent();
+                }
+                pListe.next();
+            }
+            //zum entfernen des zufor als kleinstes gefundene obj aus der liste
             pListe.toFirst();
-        }while(pListe.hasAccess());
-        metaData.swaps = metaData.zyklen;
-        metaData.objToSort = metaData.zyklen;
-        metaData.time = System.currentTimeMillis() - timeStemp;
-        return result;
+            while (temp != pListe.getContent()){
+                pListe.next();
+            }
+            pListe.remove();
+
+            metaData.swaps++;
+            sortiert.append(temp);
+            pListe.toFirst();
+        }
+        metaData.time = System.currentTimeMillis() - tempT;
+        return sortiert;
     }
     public static void main(String[] args) {
         double l = System.currentTimeMillis();
-        int gewuenschte = 10;
+        int gewuenschte = 200; //----Anzahl der Sortierten obj----
         Wartezimmer einZimmer = new Wartezimmer(gewuenschte);
 
         double round1 = System.currentTimeMillis()- l;
-        //Bubble
+        //----Wähle den gefünschten algorythmus, in dem amn die entsptechenden zeilen ent-kommentiert, und alle nicht gewünschten "einZimmer.[AlgorythmussName]()" Zeilen auskommentiert
+        //----Bubble----
         TempMetaData bubbleData = new TempMetaData();
-        //einZimmer.BubbleSort(bubbleData, einZimmer.meineBubbleP);
+        einZimmer.BubbleSort(bubbleData, einZimmer.meineBubbleP);
         //einZimmer.gibArrayAus(einZimmer.meineBubbleP);
 
-        //Shaker
+        //----Shaker----
         TempMetaData shakerData = new TempMetaData();
-        //einZimmer.ShakerSort(shakerData, einZimmer.meineShakerP);
+        einZimmer.ShakerSort(shakerData, einZimmer.meineShakerP);
         //einZimmer.gibArrayAus(einZimmer.meineShakerP);
 
-        //Selection
+        //----Insertion----
+        TempMetaData insertionData = new TempMetaData();
+        einZimmer.meinePListI = einZimmer.insertionSort(einZimmer.meinePListI, insertionData);
+        //einZimmer.gibListAus(einZimmer.meinePListI);
+
+        //----Selection----
         TempMetaData selectionData = new TempMetaData();
-        einZimmer.meinePList = einZimmer.selectionSort(einZimmer.meinePList, selectionData);
-        einZimmer.gibListAus(einZimmer.meinePList);
+        einZimmer.meinePListI = einZimmer.selectionSort(einZimmer.meinePListI, selectionData);
+        einZimmer.gibListAus(einZimmer.meinePListI);
+
         System.out.println("--------------------------------------------------------");
         System.out.println("Gesamte Prozess Dauer ≈ " + (System.currentTimeMillis()- l)/1000 + " (Sek)" );
         System.out.println("Erstellung des Zimmers und seinen Patienten ≈ " + round1/1000 + " (Sek)");
@@ -229,6 +286,8 @@ public class Wartezimmer{
         bubbleData.toConsole();
         System.out.println("---------------------------SHAKER-----------------------------");
         shakerData.toConsole();
+        System.out.println("---------------------------INSERTION-----------------------------");
+        insertionData.toConsole();
         System.out.println("---------------------------SELECTION-----------------------------");
         selectionData.toConsole();
         System.out.println("--------------------------------------------------------");
