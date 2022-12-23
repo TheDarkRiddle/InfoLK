@@ -27,7 +27,7 @@ public class Wartezimmer{
         //public Patient(int pID, String pKrankheit, double pGrad)
         meineBubbleP = makeKranke( pI,KrankheitenListe);
         meineShakerP = makeKranke(pI, KrankheitenListe);
-            //meinePList.append(p); TODO ArrayToList
+        meinePList = ArrayToList(meineBubbleP);
     }
 
     public void newPatient(Patient pPatient) {
@@ -55,16 +55,16 @@ public class Wartezimmer{
         System.out.println("++++++++++++++++++++++++++++++"+"\n");
     }
 
-    public void gibListAus(){
+    public void gibListAus(List<Patient> list){
         System.out.println("++++++++++++++++++++++++++++++");
         System.out.println("Im Wartezimmer(List) sitzen derzeit:");
-        meinePList.toFirst();
-        while(meinePList.hasAccess()){
-            Patient temp = meinePList.getContent();
+        list.toFirst();
+        while(list.hasAccess()){
+            Patient temp = list.getContent();
             System.out.println("PID: " + temp.getID()+
                     " PKrankheit: " + temp.getKrankheit()+
                     " pGrad: " + temp.getGrad());
-            meinePList.next();
+            list.next();
         }
         System.out.println("++++++++++++++++++++++++++++++"+"\n");
     }
@@ -77,6 +77,13 @@ public class Wartezimmer{
         }
     }
 
+    private List<Patient>ArrayToList(Patient[] array){
+        List<Patient> eineListe = new List<Patient>();
+        for (int i = 0; i< array.length; i++){
+            eineListe.append(array[i]);
+        }
+        return eineListe;
+    }
     public static Patient[] makeKranke(int count, String adress){
         //Ausgabe DS
         Patient[] patienten = new Patient[count];
@@ -170,22 +177,51 @@ public class Wartezimmer{
         metaData.time = System.currentTimeMillis() - tempT;
     }
 
+    public List<Patient> selectionSort(List<Patient> pListe, TempMetaData metaData){
+        double timeStemp = System.currentTimeMillis();
+        List<Patient> result = new List<Patient>();
+        pListe.toFirst();
+        do {
+            metaData.zyklen++;
+            Patient smalest = pListe.getContent();
+            pListe.next();
+            while (pListe.hasAccess()){
+                if (pListe.getContent().isLess(smalest)){
+                    smalest = pListe.getContent();
+                    pListe.remove();
+                }
+                else{
+                    pListe.next();
+                }
+            }
+            result.append(smalest);
+            pListe.toFirst();
+        }while(pListe.hasAccess());
+        metaData.swaps = metaData.zyklen;
+        metaData.objToSort = metaData.zyklen;
+        metaData.time = System.currentTimeMillis() - timeStemp;
+        return result;
+    }
     public static void main(String[] args) {
         double l = System.currentTimeMillis();
-        int gewuenschte = 50000;
+        int gewuenschte = 10;
         Wartezimmer einZimmer = new Wartezimmer(gewuenschte);
 
         double round1 = System.currentTimeMillis()- l;
         //Bubble
         TempMetaData bubbleData = new TempMetaData();
-        einZimmer.BubbleSort(bubbleData, einZimmer.meineBubbleP);
-        einZimmer.gibArrayAus(einZimmer.meineBubbleP);
+        //einZimmer.BubbleSort(bubbleData, einZimmer.meineBubbleP);
+        //einZimmer.gibArrayAus(einZimmer.meineBubbleP);
 
         //Shaker
         TempMetaData shakerData = new TempMetaData();
-        einZimmer.ShakerSort(shakerData, einZimmer.meineShakerP);
-        einZimmer.gibArrayAus(einZimmer.meineShakerP);
+        //einZimmer.ShakerSort(shakerData, einZimmer.meineShakerP);
+        //einZimmer.gibArrayAus(einZimmer.meineShakerP);
 
+        //Selection
+        TempMetaData selectionData = new TempMetaData();
+        einZimmer.meinePList = einZimmer.selectionSort(einZimmer.meinePList, selectionData);
+        einZimmer.gibListAus(einZimmer.meinePList);
         System.out.println("--------------------------------------------------------");
         System.out.println("Gesamte Prozess Dauer ≈ " + (System.currentTimeMillis()- l)/1000 + " (Sek)" );
         System.out.println("Erstellung des Zimmers und seinen Patienten ≈ " + round1/1000 + " (Sek)");
@@ -193,6 +229,8 @@ public class Wartezimmer{
         bubbleData.toConsole();
         System.out.println("---------------------------SHAKER-----------------------------");
         shakerData.toConsole();
+        System.out.println("---------------------------SELECTION-----------------------------");
+        selectionData.toConsole();
         System.out.println("--------------------------------------------------------");
     }
 }

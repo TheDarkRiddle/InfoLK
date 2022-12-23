@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2da708d-c3d4-415d-a20d-8e1ee644636b" name="Changes" comment="LgerHausi kann nun mher">
+    <list default="true" id="b2da708d-c3d4-415d-a20d-8e1ee644636b" name="Changes" comment="Sortieren wie ein pro">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sortieren/Krankheiten" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sortieren/Krankheiten" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sortieren/Wartezimmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sortieren/Wartezimmer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -163,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668070116170</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Sortieren wie ein pro">
+      <created>1670880034579</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670880034579</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -180,7 +186,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="HA vom 15.8.2022 auf den 16.8.2022. UML Diagramme umsetzen." />
     <MESSAGE value="LgerHausi kann nun mher" />
-    <option name="LAST_COMMIT_MESSAGE" value="LgerHausi kann nun mher" />
+    <MESSAGE value="Sortieren wie ein pro" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sortieren wie ein pro" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -189,15 +196,33 @@
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Sortieren/Wartezimmer.java</url>
+          <line>202</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Sortieren/Wartezimmer.java</url>
+          <line>198</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Sortieren/Wartezimmer.java</url>
+          <line>184</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Sortieren/Wartezimmer.java</url>
+          <line>188</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="manyPeopel" />
-        <watch expression="namenArray" />
-        <watch expression="namenBuschteben" />
-        <watch expression="namen" />
-        <watch expression="namenArray.length" />
+        <watch expression="result" />
+        <watch expression="smalest" />
+        <watch expression="pListe.hasAccess()" />
       </configuration>
     </watches-manager>
   </component>
