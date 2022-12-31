@@ -12,6 +12,13 @@ public class Wartezimmer{
 
     List<Patient> meinePListS;
 
+    /**
+     *   Eine Klasse zum speichern interessanter Daten
+     * @swaps Die anzahl an Schritten in denen einn Object bewegt wird Objekten
+     * @zyklen Die Anzal an durchläufen der Gesammten Struktur
+     * @time Die zeit in sekunden die die Methode brauchte
+     * @objToSort Die Sortierten Objecte
+     */
     static class TempMetaData {
         int swaps = 0;
         int zyklen = 0;
@@ -118,7 +125,8 @@ public class Wartezimmer{
     /**
     *   Ein Bubble sort
     *
-    @param metaData //zur weitergabe der meta daten.
+    * @param metaData zur weitergabe der meta daten. Um später zu wissen wie lange die Methode gebraucht hat etc
+     * @param toSort Array welches sortiert wird
      */
     public void BubbleSort(TempMetaData metaData , Patient[] toSort){
         double tempT = System.currentTimeMillis();
@@ -141,6 +149,12 @@ public class Wartezimmer{
         }
         metaData.time = System.currentTimeMillis() - tempT;
     }
+    /**
+     *   Ein Shaker sort
+     *
+     @param metaData zur weitergabe der meta daten. Um später zu wissen wie lange die Methode gebraucht hat etc.
+     @param toSort Array welches sortiert wird
+     */
     public void ShakerSort(TempMetaData metaData, Patient[] toSort){
         double tempT = System.currentTimeMillis();
         int end = toSort.length;
@@ -181,6 +195,12 @@ public class Wartezimmer{
         metaData.time = System.currentTimeMillis() - tempT;
     }
 
+    /**
+     *   Ein insertion sort
+     *
+     @param metaData zur weitergabe der meta daten. Um später zu wissen wie lange die Methode gebraucht hat etc.
+     @param pListe Liste welche sortiert wird
+     */
     public List<Patient> insertionSort(List<Patient> pListe, TempMetaData metaData){
         double tempT= System.currentTimeMillis();
         boolean sorted;
@@ -224,6 +244,12 @@ public class Wartezimmer{
         metaData.time = System.currentTimeMillis() - tempT;
         return sortiert;
     }
+    /**
+     *   Ein Selection sort
+     *
+     @param metaData zur weitergabe der meta daten. Um später zu wissen wie lange die Methode gebraucht hat etc.
+     @param pListe Liste welche sortiert wird
+     */
     public List<Patient> selectionSort(List<Patient> pListe, TempMetaData metaData){
         double tempT= System.currentTimeMillis();
         List<Patient> sortiert = new List<>();

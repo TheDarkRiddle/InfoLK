@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2da708d-c3d4-415d-a20d-8e1ee644636b" name="Changes" comment="Sortieren wie ein pro">
+    <list default="true" id="b2da708d-c3d4-415d-a20d-8e1ee644636b" name="Changes" comment="Alles sortiert wie es soll + update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sortieren/Wartezimmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sortieren/Wartezimmer.java" afterDir="false" />
     </list>
@@ -169,7 +169,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670880034579</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Alles sortiert wie es soll">
+      <created>1671807496010</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1671807496010</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Alles sortiert wie es soll + update">
+      <created>1671807621077</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671807621077</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -187,7 +201,9 @@
     <MESSAGE value="HA vom 15.8.2022 auf den 16.8.2022. UML Diagramme umsetzen." />
     <MESSAGE value="LgerHausi kann nun mher" />
     <MESSAGE value="Sortieren wie ein pro" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sortieren wie ein pro" />
+    <MESSAGE value="Alles sortiert wie es soll" />
+    <MESSAGE value="Alles sortiert wie es soll + update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alles sortiert wie es soll + update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
