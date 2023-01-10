@@ -279,9 +279,43 @@ public class Wartezimmer{
         metaData.time = System.currentTimeMillis() - tempT;
         return sortiert;
     }
+    public List<Patient> hendrik(List<Patient> pListe, TempMetaData metaData){
+        double tempT= System.currentTimeMillis();
+
+        List<Patient> temp = new List<Patient>();
+        Patient lowestGrade = null;
+        while(!pListe.isEmpty()){
+            metaData.zyklen ++;
+            pListe.toFirst(); //Zeile C
+            lowestGrade=null; // Diese zeile kann gegen: " lowestGrade=pListe.getContent()" getauscht werden, dann wird "Block B"überfällig. So nimmst du zum Testen das erste, und das ess ein Neues ist ist ja auch noch gewährleistet
+            while(pListe.hasAccess()){
+                if(lowestGrade == null){                //
+                    lowestGrade = pListe.getContent();  // Block B
+                }                                       //
+                if(lowestGrade.isLess(pListe.getContent())){ //Sucht das größte
+                    lowestGrade = pListe.getContent();
+                }
+                pListe.next();
+            }
+            pListe.toFirst();
+            //hier kann "Zeile A" hin, sie hat keinen Grund in der Schleife zu sein
+            while(pListe.hasAccess()){
+                if(lowestGrade==pListe.getContent()){
+                    temp.append(pListe.getContent()); //Zeile A
+                    pListe.remove();
+                    pListe.toLast();// überfällig, da du in "Zeile C" auf den Ersten so oder so üpfst und deine Abbruch bedingung "IsEmpty"ist
+                }
+                //--->>> hier muss "DEINELISTE.next();" hin
+            }
+            pListe.next(); // überfällig, da du in "Zeile C" auf den Ersten so oder so üpfst und deine Abbruch bedingung "IsEmpty"ist. Du sprigst auf NULL-obj = kann gefährlich sein
+        }
+        metaData.time = System.currentTimeMillis() - tempT;
+        return temp;
+    }
+
     public static void main(String[] args) {
         double l = System.currentTimeMillis();
-        int gewuenschte = 200; //----Anzahl der Sortierten obj----
+        int gewuenschte = 50000; //----Anzahl der Sortierten obj----
         Wartezimmer einZimmer = new Wartezimmer(gewuenschte);
 
         double round1 = System.currentTimeMillis()- l;
@@ -289,22 +323,27 @@ public class Wartezimmer{
         //----Bubble----
         TempMetaData bubbleData = new TempMetaData();
         einZimmer.BubbleSort(bubbleData, einZimmer.meineBubbleP);
-        //einZimmer.gibArrayAus(einZimmer.meineBubbleP);
+        einZimmer.gibArrayAus(einZimmer.meineBubbleP);
 
         //----Shaker----
         TempMetaData shakerData = new TempMetaData();
-        einZimmer.ShakerSort(shakerData, einZimmer.meineShakerP);
+        //einZimmer.ShakerSort(shakerData, einZimmer.meineShakerP);
         //einZimmer.gibArrayAus(einZimmer.meineShakerP);
 
         //----Insertion----
         TempMetaData insertionData = new TempMetaData();
-        einZimmer.meinePListI = einZimmer.insertionSort(einZimmer.meinePListI, insertionData);
+        //einZimmer.meinePListI = einZimmer.insertionSort(einZimmer.meinePListI, insertionData);
         //einZimmer.gibListAus(einZimmer.meinePListI);
 
         //----Selection----
         TempMetaData selectionData = new TempMetaData();
-        einZimmer.meinePListI = einZimmer.selectionSort(einZimmer.meinePListI, selectionData);
-        einZimmer.gibListAus(einZimmer.meinePListI);
+        //einZimmer.meinePListS = einZimmer.selectionSort(einZimmer.meinePListI, selectionData);
+        //einZimmer.gibListAus(einZimmer.meinePListS);
+
+        //-----Hendrik----
+        TempMetaData hendrikData = new TempMetaData();
+        //einZimmer.meinePListS = einZimmer.hendrik(einZimmer.meinePListS, hendrikData);
+        //einZimmer.gibListAus(einZimmer.meinePListS);
 
         System.out.println("--------------------------------------------------------");
         System.out.println("Gesamte Prozess Dauer ≈ " + (System.currentTimeMillis()- l)/1000 + " (Sek)" );
@@ -318,5 +357,7 @@ public class Wartezimmer{
         System.out.println("---------------------------SELECTION-----------------------------");
         selectionData.toConsole();
         System.out.println("--------------------------------------------------------");
+        System.out.println("---------------------------Hendirk-----------------------------");
+        hendrikData.toConsole();
     }
 }

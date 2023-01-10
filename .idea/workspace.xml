@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2da708d-c3d4-415d-a20d-8e1ee644636b" name="Changes" comment="Alles sortiert wie es soll + update">
+    <list default="true" id="b2da708d-c3d4-415d-a20d-8e1ee644636b" name="Changes" comment="Bessere lesbarketi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Sortieren/Wartezimmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sortieren/Wartezimmer.java" afterDir="false" />
     </list>
@@ -183,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671807621077</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Bessere lesbarketi">
+      <created>1672490226629</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1672490226629</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -203,7 +210,8 @@
     <MESSAGE value="Sortieren wie ein pro" />
     <MESSAGE value="Alles sortiert wie es soll" />
     <MESSAGE value="Alles sortiert wie es soll + update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alles sortiert wie es soll + update" />
+    <MESSAGE value="Bessere lesbarketi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bessere lesbarketi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
