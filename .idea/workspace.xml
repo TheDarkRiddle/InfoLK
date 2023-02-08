@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b2da708d-c3d4-415d-a20d-8e1ee644636b" name="Changes" comment="Bessere lesbarketi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sortieren/Wartezimmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sortieren/Wartezimmer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,11 +122,11 @@
     </configuration>
     <list>
       <item itemvalue="Application.FakeBlockChain" />
-      <item itemvalue="Application.Wartezimmer" />
       <item itemvalue="Application.Finger" />
       <item itemvalue="Application.KrankenHaus" />
       <item itemvalue="Application.Lagerhausi" />
       <item itemvalue="Application.Schule" />
+      <item itemvalue="Application.Wartezimmer" />
     </list>
     <recent_temporary>
       <list>
