@@ -6,21 +6,36 @@ public class Stammbaum<T>{
         Wortel = a;
     }
 
-    public T GibAus(BinaryTree<T> tree){
-        if(tree.getLeftTree().isEmpty() && tree.getRightTree().isEmpty()){
-            return tree.getContent();
+    public void GibAus(BinaryTree<T> tree, String space){
+        if(!tree.isEmpty()){
+            System.out.println(tree.getContent()+space);
         }
-        if (!tree.getRightTree().isEmpty() && !tree.getLeftTree().isEmpty()){
-            return GibAus(tree.getLeftTree()) + GibAus(tree.getRightTree());
+        BinaryTree<T> left = tree.getLeftTree();
+        if(!left.isEmpty()){
+            GibAus(left, space+"  ");
         }
-        if (tree.getRightTree().isEmpty()){
-           return GibAus(tree.getLeftTree());
+        BinaryTree<T> right = tree.getRightTree();
+        if(!right.isEmpty()){
+            GibAus(right, space+"  ");
         }
-        else {
-            return GibAus(tree.getRightTree());
-        }
-    }
 
+    }
+    public String GibAusTwo(BinaryTree<T> tree, String space){
+        BinaryTree<T> left = tree.getLeftTree();
+        BinaryTree<T> right = tree.getRightTree();
+        if (!left.isEmpty() && !right.isEmpty()){
+            return tree.getContent().toString() + space
+                    + GibAusTwo(left, space+" ") + space
+                    + GibAusTwo(right, space+" ") + space;
+        }
+            if (!left.isEmpty()) {
+                return tree.getContent().toString() + GibAusTwo(left, space +" ") + space;
+            }
+            if (!right.isEmpty()) {
+                return tree.getContent().toString() + GibAusTwo(right, space +" ") + space;
+            }
+        return tree.getContent().toString();
+    }
 
     public static void main(String[] args) {
         BinaryTree<String> Gen2_4 = new BinaryTree<>("Erhard");
@@ -31,7 +46,7 @@ public class Stammbaum<T>{
         BinaryTree<String> Gen1 = new BinaryTree<>("Mellanie", Gen2,Gen2_2);
         BinaryTree<String> Gen0 = new BinaryTree<>("Moritz", Gen1, Gen1_2);
         Stammbaum<String> StringBaum = new Stammbaum<>(Gen0);
-        System.out.println(StringBaum.GibAus(StringBaum.Wortel));
-
+        StringBaum.GibAus(StringBaum.Wortel, " ");
+       System.out.println(StringBaum.GibAusTwo(StringBaum.Wortel, " "));
     }
 }
