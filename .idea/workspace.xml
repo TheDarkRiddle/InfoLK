@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2da708d-c3d4-415d-a20d-8e1ee644636b" name="Changes" comment="HENDRIK">
-      <change afterPath="$PROJECT_DIR$/src/Rekusion/main.java" afterDir="false" />
+    <list default="true" id="b2da708d-c3d4-415d-a20d-8e1ee644636b" name="Changes" comment="Bessere lesbarketi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sortieren/Wartezimmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sortieren/Wartezimmer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +46,7 @@
       <recent name="C:\Users\derMo\Programme\Work\InfoLK_Java\InfoLK\src\InterfacesUndVererbung" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.main">
+  <component name="RunManager" selected="Application.Wartezimmer">
     <configuration name="FakeBlockChain" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="FakeBlockChain.Block" />
       <module name="InfoLK" />
@@ -63,6 +61,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="InterfacesUndVererbung.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KrankenHaus" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FakeBlockChain.KrankenHaus" />
+      <module name="InfoLK" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="FakeBlockChain.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -109,34 +120,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Rekusion.main" />
-      <module name="InfoLK" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Rekusion.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.FakeBlockChain" />
-      <item itemvalue="Application.main" />
-      <item itemvalue="Application.Wartezimmer" />
       <item itemvalue="Application.Finger" />
+      <item itemvalue="Application.KrankenHaus" />
       <item itemvalue="Application.Lagerhausi" />
       <item itemvalue="Application.Schule" />
+      <item itemvalue="Application.Wartezimmer" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.main" />
         <item itemvalue="Application.Wartezimmer" />
         <item itemvalue="Application.Lagerhausi" />
         <item itemvalue="Application.Finger" />
         <item itemvalue="Application.Schule" />
+        <item itemvalue="Application.KrankenHaus" />
       </list>
     </recent_temporary>
   </component>
@@ -191,14 +189,7 @@
       <option name="project" value="LOCAL" />
       <updated>1672490226629</updated>
     </task>
-    <task id="LOCAL-00007" summary="HENDRIK">
-      <created>1673363894914</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1673363894914</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,8 +210,7 @@
     <MESSAGE value="Alles sortiert wie es soll" />
     <MESSAGE value="Alles sortiert wie es soll + update" />
     <MESSAGE value="Bessere lesbarketi" />
-    <MESSAGE value="HENDRIK" />
-    <option name="LAST_COMMIT_MESSAGE" value="HENDRIK" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bessere lesbarketi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
