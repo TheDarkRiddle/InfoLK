@@ -128,27 +128,26 @@ public class Wartezimmer{
     * @param metaData zur weitergabe der meta daten. Um später zu wissen wie lange die Methode gebraucht hat etc
      * @param toSort Array welches sortiert wird
      */
-    public void BubbleSort(TempMetaData metaData , Patient[] toSort){
-        double tempT = System.currentTimeMillis();
-        int n = toSort.length;
-        metaData.objToSort = n;
-
-        for (int i = 0; i < n-1; i++){
-            metaData.zyklen++;
-            boolean swapped = false;
-            for (int j = 0; j < n-i-1; j++){
-                if (toSort[j].isGreater(toSort[j+1])){
-                    swap(j, j+1, toSort);
-                    swapped = true;
-                    metaData.swaps++;
-                }
-            }
-            if (!swapped){
-                i = toSort.length;
-            }
-        }
-        metaData.time = System.currentTimeMillis() - tempT;
-    }
+    public void BubbleSort(TempMetaData metaData , Patient[] toSort){   //////// O(N^2)
+        double tempT = System.currentTimeMillis();                      // 0(1)
+        int n = toSort.length;                                          // 0(1)
+        metaData.objToSort = n;                                         // 0(1)
+        for (int i = 0; i < n-1; i++){                                  ////// 0(N)
+            metaData.zyklen++;                                          // 0(1)
+            boolean swapped = false;                                    // 0(1)
+            for (int j = 0; j < n-i-1; j++){                            //// 0(N^2)
+                if (toSort[j].isGreater(toSort[j+1])){                  // 0(1)
+                    swap(j, j+1, toSort);                             // 0(1)
+                    swapped = true;                                     // 0(1)
+                    metaData.swaps++;                                   // 0(1)
+                }                                                       // 0(1)
+            }                                                           // 0(1)
+            if (!swapped){                                              //// 0(1)
+                i = toSort.length;                                      // 0(1)
+            }                                                           // 0(1)
+        }                                                               // 0(1)
+        metaData.time = System.currentTimeMillis() - tempT;             // 0(1)
+    }                                                                   // 0(1)
     /**
      *   Ein Shaker sort
      *
@@ -315,20 +314,20 @@ public class Wartezimmer{
 
     public static void main(String[] args) {
         double l = System.currentTimeMillis();
-        int gewuenschte = 50000; //----Anzahl der Sortierten obj----
+        int gewuenschte = 20000; //----Anzahl der Sortierten obj----
         Wartezimmer einZimmer = new Wartezimmer(gewuenschte);
 
         double round1 = System.currentTimeMillis()- l;
         //----Wähle den gefünschten algorythmus, in dem amn die entsptechenden zeilen ent-kommentiert, und alle nicht gewünschten "einZimmer.[AlgorythmussName]()" Zeilen auskommentiert
         //----Bubble----
         TempMetaData bubbleData = new TempMetaData();
-        einZimmer.BubbleSort(bubbleData, einZimmer.meineBubbleP);
-        einZimmer.gibArrayAus(einZimmer.meineBubbleP);
+        //einZimmer.BubbleSort(bubbleData, einZimmer.meineBubbleP);
+        //einZimmer.gibArrayAus(einZimmer.meineBubbleP);
 
         //----Shaker----
         TempMetaData shakerData = new TempMetaData();
-        //einZimmer.ShakerSort(shakerData, einZimmer.meineShakerP);
-        //einZimmer.gibArrayAus(einZimmer.meineShakerP);
+        einZimmer.ShakerSort(shakerData, einZimmer.meineShakerP);
+        einZimmer.gibArrayAus(einZimmer.meineShakerP);
 
         //----Insertion----
         TempMetaData insertionData = new TempMetaData();
