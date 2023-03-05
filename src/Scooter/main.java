@@ -9,7 +9,7 @@ import javax.naming.ldap.LdapReferralException;
 * Scooter
 * Standort
 */
-
+/*
 public class main {
 
     //List<Kunde> ermittletwas(int pDistanz);
@@ -24,7 +24,7 @@ public class main {
 
 
     List<Kunde> ermittleWarnListe( int pDistanz){
-        Liste<Kunde> erg = new Liste<Kunde>();
+        List<Kunde> erg = new List<Kunde>();
         if (pDistanz <= 0 || alleKunden.isEmpty()){
             return erg;
         }
@@ -40,10 +40,10 @@ public class main {
  * @param liste Die mit zu übergebene Liste, in die die Scooter gespeichert werden.
  * @param tree der BTS der durchlaufen werden soll.
 * */
-    void gibFalschParker(BinaryTree<Scooter> tree, List<Scooter> liste, int pDistanz){
+   /* void gibFalschParker(BinaryTree<Scooter> tree, List<Scooter> liste, int pDistanz){
         if (tree.isEmpty()){
          return;
-        }/*Firmen Zentrale ist definiert am P(0/0)*/
+        }/*Firmen Zentrale ist definiert am P(0/0)
         if (tree.getContent().gibStandort().liefereDistanz(new Standort(0,0)) >
                                                          pDistanz && tree.getContent().gibAusleiher()!=null){
             liste.append(tree.getContent());
@@ -52,3 +52,4 @@ public class main {
          gibFalschParker(tree.getLeftTree(), liste, pDistanz);
     }
 }
+*/
