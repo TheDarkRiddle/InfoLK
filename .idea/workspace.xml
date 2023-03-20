@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2da708d-c3d4-415d-a20d-8e1ee644636b" name="Changes" comment="Bessere lesbarketi">
-      <change afterPath="$PROJECT_DIR$/src/Scooter/BinarySearchTree.java" afterDir="false" />
+    <list default="true" id="b2da708d-c3d4-415d-a20d-8e1ee644636b" name="Changes" comment="ScooterWrumWrum!">
+      <change afterPath="$PROJECT_DIR$/src/Ahnenbaum/AVLTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Scooter/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scooter/main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,10 +126,10 @@
     </configuration>
     <list>
       <item itemvalue="Application.FakeBlockChain" />
+      <item itemvalue="Application.ScooterVerwaltung" />
       <item itemvalue="Application.Finger" />
       <item itemvalue="Application.Lagerhausi" />
       <item itemvalue="Application.Schule" />
-      <item itemvalue="Application.ScooterVerwaltung" />
       <item itemvalue="Application.Wartezimmer" />
     </list>
     <recent_temporary>
@@ -194,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672490226629</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="ScooterWrumWrum!">
+      <created>1678051531019</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1678051531019</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -215,7 +221,8 @@
     <MESSAGE value="Alles sortiert wie es soll" />
     <MESSAGE value="Alles sortiert wie es soll + update" />
     <MESSAGE value="Bessere lesbarketi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bessere lesbarketi" />
+    <MESSAGE value="ScooterWrumWrum!" />
+    <option name="LAST_COMMIT_MESSAGE" value="ScooterWrumWrum!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
