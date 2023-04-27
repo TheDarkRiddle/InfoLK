@@ -1,4 +1,7 @@
 package Frendschaft;
+
+import Sortieren.List;
+
 public class Frendschaftskreis {
 
     private Graph FRK = new Graph();
@@ -27,11 +30,27 @@ public class Frendschaftskreis {
     private Edge ML = new Edge(Merle, Lisa, 1);
     private Edge MS = new Edge(Merle, Susi, 1);
 
-    FRK.addVertex(Sus);
-    FRK.addVertex();
-    FRK.addVertex();
-    FRK.addVertex();
-    FRK.addVertex();
+    public Frendschaftskreis(){
+        FRK.addVertex(Susi);
+        FRK.addVertex(Karl);
+        FRK.addVertex(Lisa);
+        FRK.addVertex(Merle);
+        FRK.addVertex(Jens);
+    }
 
+    public boolean gehoertXzuYsFreundschaftsKreis(String X, String Y) {
+       List<Vertex> eineListe = FRK.getNeighbours(FRK.getVertex(X));
+        boolean erg = false;
+       eineListe.toFirst();
+        while (eineListe.hasAccess()){
+            if (eineListe.getContent().getID().equals(Y)){
+                erg = true;
+            }
+            eineListe.next();
+        }
+        return erg;
+    }
+    public static void main(String[] args) {
 
+    }
 }
