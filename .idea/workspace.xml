@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b2da708d-c3d4-415d-a20d-8e1ee644636b" name="Changes" comment="ScooterWrumWrum!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Frendschaft/Frendschaftskreis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frendschaft/Frendschaftskreis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Frendschaft/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Frendschaft/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Scooter/BinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scooter/BinarySearchTree.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
