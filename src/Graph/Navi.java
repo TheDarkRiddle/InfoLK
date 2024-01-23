@@ -62,9 +62,9 @@ public class Navi
         mg.addEdge(fc);
         mg.addEdge(fh);
     }
-    public Vertex TiefenSuche(String start, String ende, Stack<String> sammlung, Graph suchFeld){
-        System.out.println(start);
-        Vertex startV = suchFeld.getVertex(start);
+    public Vertex TiefenSuche(String start, String ende, Stack<String> sammlung, Graph suchFeld){ // start = Berlin  ende=GM
+        //System.out.println(start);
+        Vertex startV = suchFeld.getVertex(start); // Vertex ID Berlin
         Vertex endV = suchFeld.getVertex(ende);
         List<Vertex> tempList;
         if (startV == endV){
@@ -87,6 +87,61 @@ public class Navi
         String tempString = sammlung.top();
         sammlung.pop();
         return TiefenSuche(tempString, ende, sammlung, suchFeld);
+    }
+    public Vertex TeifenSucheB(Vertex start, Vertex ende, Graph suchFeld){
+        Stack<Vertex> sammlung = new Stack();
+        if (suchFeld.isEmpty()){
+            return null;
+        }
+        sammlung.push(start);
+        start.setMark(true);
+
+        while (!sammlung.isEmpty()){
+            if( ende == sammlung.top()){
+                return sammlung.top();
+            }
+            Vertex tempV = sammlung.top();
+            sammlung.pop();
+            List<Vertex> nachbarn = suchFeld.getNeighbours(tempV);
+
+            while(nachbarn.hasAccess()) {
+                Vertex tempVertex = nachbarn.getContent();
+                if (!tempVertex.isMarked()){
+                    tempVertex.setMark(true);
+                    sammlung.push(tempVertex);
+                }
+                nachbarn.next();
+            }
+        }
+        return null;
+    }
+
+    public Vertex BreitenSucheB(Vertex start, Vertex ende, Graph suchFeld){
+        Queue<Vertex> sammlung = new Queue();
+        if (suchFeld.isEmpty()){
+            return null;
+        }
+        sammlung.enqueue(start);
+        start.setMark(true);
+
+        while (!sammlung.isEmpty()){
+            if( ende == sammlung.front()){
+                return sammlung.front();
+            }
+            Vertex tempV = sammlung.front();
+            sammlung.dequeue();
+            List<Vertex> nachbarn = suchFeld.getNeighbours(tempV);
+
+            while(nachbarn.hasAccess()) {
+                Vertex tempVertex = nachbarn.getContent();
+                if (!tempVertex.isMarked()){
+                    tempVertex.setMark(true);
+                    sammlung.enqueue(tempVertex);
+                }
+                nachbarn.next();
+            }
+        }
+        return null;
     }
     public Vertex BreitenSuche(String start, String ende, Queue<String> sammlung, Graph suchFeld){
         System.out.println(start);
