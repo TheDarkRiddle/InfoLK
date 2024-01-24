@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="876401f9-6a9a-409f-8cfe-524727c92d36" name="Changes" comment="Parser completed">
+    <list default="true" id="876401f9-6a9a-409f-8cfe-524727c92d36" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CompilerBau/Scanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CompilerBau/Scanner.java" afterDir="false" />
     </list>
@@ -23,12 +23,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "TheDarkRiddle"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;TheDarkRiddle&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -105,6 +105,15 @@
       <option name="presentableId" value="Default" />
       <updated>1706016659733</updated>
     </task>
+    <task id="LOCAL-00001" summary="Scanner works">
+      <option name="closed" value="true" />
+      <created>1706118181798</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1706118181798</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,7 +129,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Parser completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Parser completed" />
+    <MESSAGE value="Scanner works" />
+    <option name="LAST_COMMIT_MESSAGE" value="Scanner works" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

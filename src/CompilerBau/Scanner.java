@@ -44,6 +44,7 @@ public class Scanner {
     {
         if (Satz == null || Satz.isEmpty()) return;
         if (Satz.charAt(Satz.length()-1) != ' ' ) Satz += " ";
+        if (Satz.charAt(0) == ' ') Satz = Satz.substring(1);
         int WortAnfang = 0;
         for (int i = 0; i < Satz.length(); i++)
         {
@@ -59,7 +60,7 @@ public class Scanner {
     public List<String> GetTokenListe(){ return TokenListe;}
 
     public static void main(String[] args) {
-        String EinSatz = "10 ++- 10101";
+        String EinSatz = " 10 ++ 10101";
         Scanner EinScanner = new Scanner(EinSatz);
         List<String> TokenList = EinScanner.GetTokenListe();
         TokenList.toFirst();
