@@ -3,7 +3,6 @@ package CompilerBau;
 public class Parser {
 
     //Attribute
-    //Listen die die Gramatik optionen darstellen
     private static Grammatik MGrammatik;
 
 
@@ -13,9 +12,9 @@ public class Parser {
     }
 
     /**
-     * Prüft ob eine Token liste Gültig ist.
+     * Prüft, ob die Token liste Gültig ist.
      *
-     * @param L Zu pruefende Token Liste
+     * @param L Zu prüfende Token Liste
      * */
     public boolean Parse(List<String> L)
     {
@@ -28,9 +27,9 @@ public class Parser {
     }
 
     /**
-     * Prüft ob alle Tokens der Liste auch in der Grammatik vorhanden sind
+     * Prüft, ob alle Tokens der Liste auch in der Grammatik vorhanden sind
      *
-     * @param L Zu pruefende Token Liste
+     * @param L Zu prüfende Token Liste
      * */
     public boolean SindTokenGueltig(List<String> L)
     {
@@ -42,10 +41,10 @@ public class Parser {
         return true;
     }
     /**
-     * Prüft ob die Reihenfolge der Tokens mit der Grammatik konstruierbar ist
+     * Prüft, ob die Reihenfolge der Tokens mit der Grammatik konservierbar y
      *
-     * @param TL Eine Liste an Tokens, welche anhand der Grammatik Geprüft werden soll
-     * @param PreviousChar Das Aktuelle Non-Terminal der Grammatik
+     * @param TL Eine Liste an Tokens, welche anhand der Grammatik geprüft werden soll
+     * @param PreviousChar Das aktuelle Non-Terminal der Grammatik
      * */
     public boolean IstInGrammatik(List<String> TL, char PreviousChar)
     {
@@ -53,52 +52,50 @@ public class Parser {
 
         String Token = TL.getContent();
         Character NextChar;
-        switch (PreviousChar)
-        {
-           case 'S':
-               if (MGrammatik.S.containsKey(Token))
-               {
-                   System.out.print(PreviousChar+"->");
+        switch (PreviousChar) {
+            case 'S' -> {
+                if (MGrammatik.S.containsKey(Token)) {
+                    System.out.print(PreviousChar + "->");
 
-                   NextChar = MGrammatik.S.get(Token);
-                   TL.next();
-                   return IstInGrammatik(TL,NextChar);
-               }else
-               {
-                   System.out.print("Error->");
-                   return false;
-               }
-           case 'A':
-               if (MGrammatik.A.containsKey(Token))
-               {
-                   System.out.print(PreviousChar+"->");
+                    NextChar = MGrammatik.S.get(Token);
+                    TL.next();
+                    return IstInGrammatik(TL, NextChar);
+                } else {
+                    System.out.print("Error->");
+                    return false;
+                }
+            }
+            case 'A' -> {
+                if (MGrammatik.A.containsKey(Token)) {
+                    System.out.print(PreviousChar + "->");
 
-                   NextChar = MGrammatik.A.get(Token);
-                   TL.next();
-                   return IstInGrammatik(TL,NextChar);
-               }else
-               {
-                   System.out.print("Error->");
-                   return false;
-               }
-           case 'B':
-               if (MGrammatik.B.containsKey(Token))
-               {
-                   System.out.print(PreviousChar+"->");
+                    NextChar = MGrammatik.A.get(Token);
+                    TL.next();
+                    return IstInGrammatik(TL, NextChar);
+                } else {
+                    System.out.print("Error->");
+                    return false;
+                }
+            }
+            case 'B' -> {
+                if (MGrammatik.B.containsKey(Token)) {
+                    System.out.print(PreviousChar + "->");
 
-                   NextChar = MGrammatik.B.get(Token);
-                   TL.next();
-                   return IstInGrammatik(TL,NextChar);
-               }else
-               {
-                   System.out.print("Error->");
-                   return false;
-               }
-           case ' ':
-               return !TL.hasAccess();
-            default:
-              return false;
-       }
+                    NextChar = MGrammatik.B.get(Token);
+                    TL.next();
+                    return IstInGrammatik(TL, NextChar);
+                } else {
+                    System.out.print("Error->");
+                    return false;
+                }
+            }
+            case ' ' -> {
+                return !TL.hasAccess();
+            }
+            default -> {
+                return false;
+            }
+        }
     }
 
     public static void main(String[] args) {
