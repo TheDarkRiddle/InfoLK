@@ -23,7 +23,7 @@ public class Scanner {
                     break;
                 case 1:
                     if (Wort.charAt(i) == '-') Zustand = 3;
-                    else if (Wort.charAt(i) == '1' || Wort.charAt(i) == '0') return "Noken";
+                    else  return "Noken";
                     break;
                 case 2:
                     if (Wort.charAt(i) == '+') Zustand = 3;
@@ -60,7 +60,7 @@ public class Scanner {
     public List<String> GetTokenListe(){ return TokenListe;}
 
     public static void main(String[] args) {
-        String EinSatz = " 10 ++ 10101";
+        String EinSatz = " 106 ++ 10101";
         Scanner EinScanner = new Scanner(EinSatz);
         List<String> TokenList = EinScanner.GetTokenListe();
         TokenList.toFirst();
@@ -72,3 +72,4 @@ public class Scanner {
         }
     }
 }
+//by M.M.
